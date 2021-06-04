@@ -4,7 +4,8 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
 const User = require('../../models/User');
-const { validateRegisterInput } = require('../../lib/utils');
+const validateRegisterInput = require('../../validation/register');
+const validateLoginInput = require('../../validation/login');
 
 const router = express.Router();
 
@@ -57,13 +58,18 @@ router.post('/register', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
-  const handle = req.body.handle;
-  const password = req.body.password;
-  const errors = {};
+  const { errors, isValid } = validateLoginInput(req.body);
 
-  User.findOne({ handle }).then((user) => {
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
+
+  const email = req.body.email;
+  const password = req.body.password;
+
+  User.findOne({ email }).then((user) => {
     if (!user) {
-      errors.handle = 'This user does not exist';
+      errors.email = 'User not found';
       return res.status(400).json(errors);
     }
 
