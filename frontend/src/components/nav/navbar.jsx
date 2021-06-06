@@ -29,18 +29,18 @@ const NavBar = () => {
   const getLinks = () => {
     if (loggedIn) {
       return (
-        <ul className="px-3 flex w-full shadow-lg menu mx-auto bg-base-100 horizontal">
-          <li className={`${initTab}`} onClick={(e) => handleNavClick(e)}>
+        <ul className="px-3 flex w-full shadow-lg menu horizontal">
+          <li className={`justify-self-start ${initTab}`} onClick={(e) => handleNavClick(e)}>
             <Link to={'/tweets'}>All Tweets</Link>
           </li>
-          <li onClick={(e) => handleNavClick(e)}>
-            <Link className="flex-1" to={'/profile'}>Profile</Link>
+          <li className="justify-self-start" onClick={(e) => handleNavClick(e)}>
+            <Link to={'/profile'}>Profile</Link>
           </li>
-          <li onClick={(e) => handleNavClick(e)}>
-            <Link className="flex-1" to={'/new_tweet'}>Write a Tweet</Link>
+          <li className="flex-1" onClick={(e) => handleNavClick(e)}>
+            <Link to={'/new_tweet'}>Write a Tweet</Link>
           </li>
-        <li onClick={(e) => handleNavClick(e)} className="">
-            <button onClick={logoutUser} className="justify-self-end">Logout</button>
+        <li onClick={(e) => handleNavClick(e)} className="justify-self-end self-center h-full">
+            <button onClick={logoutUser} className="btn btn-primary btn-md border">Logout</button>
           </li>
         </ul>
       );

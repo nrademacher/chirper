@@ -1,12 +1,19 @@
-require('dotenv').config();
+process.env.NODE_ENV === 'development' && require('dotenv').config();
+const path = require('path');
 const mongoose = require('mongoose');
 const express = require('express');
-const bodyParser = require('body-parser');
 const passport = require('passport')
-const cors = require('cors')
 require('./config/passport')(passport)
+const cors = require('cors')
 const users = require('./routes/api/users')
 const tweets = require('./routes/api/tweets')
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('frontend/dist'));
+  app.get('/', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'frontend', 'dist', 'index.html'));
+  })
+}
 
 const db = process.env.MONGO_URI;
 mongoose
@@ -16,8 +23,8 @@ mongoose
 
 const app = express();
 app.use(cors())
-app.use(bodyParser.urlencoded({extended:false}))
-app.use(bodyParser.json())
+app.use(express.urlencoded({extended: true}));
+app.use(express.json()) 
 app.use(passport.initialize())
 app.use('/api/users', users)
 app.use('/api/tweets', tweets)

@@ -1,4 +1,4 @@
-require('dotenv').config();
+process.env.NODE_ENV === 'development' && require('dotenv').config();
 const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
 const mongoose = require('mongoose');
