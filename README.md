@@ -1,6 +1,6 @@
 # chirper
 
-##A MERN-stack Twitter clone (WIP)
+## A MERN-stack Twitter clone (WIP)
 
 A simple Twitter-like fullstack app using the MERN (MondoDB, ExpressJS, ReactJS, NodeJs) stack, as well as Redux on the frontend as the app's state container.
 
