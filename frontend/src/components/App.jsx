@@ -10,7 +10,7 @@ import Profile from './profile/profile';
 import TweetCompose from './tweets/tweet_compose';
 
 const App = () => (
-  <div>
+  <div className="mx-auto min-h-screen bg-base-100 text-primary-content">
     <NavBar />
     <Switch>
       <AuthRoute exact path="/" component={MainPage} />
