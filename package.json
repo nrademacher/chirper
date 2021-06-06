@@ -8,8 +8,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "node app.js",
-    "watch": "nodemon app.js",
+    "start": "export NODE_ENV=production && node app.js",
+    "watch": "export NODE_ENV=development && nodemon app.js",
     "frontend-install": "yarn --cwd frontend install",
     "frontend": "yarn --cwd frontend dev",
     "dev": "concurrently \"yarn watch\" \"yarn frontend\"",
