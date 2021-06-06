@@ -8,7 +8,7 @@ JWT (JSON Web tokens) is used to handle user authentication.
 
 ### Getting started
 
-Run `yarn` to install dependencies, then `yarn dev` in root directory to start up both backend and frontend in development mode.
+In the root directory, run `yarn` and `yarn frontend-install` to install dependencies, then `yarn dev` to start up both backend and frontend in development mode.
 
 
 
