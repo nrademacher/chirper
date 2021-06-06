@@ -1,6 +1,6 @@
 # chirper
 
-A simple Twitter-like fullstack app using the MERN (MondoDB, ExpressJS, ReactJS, NodeJs) stack, as well as Redux on the frontend as the app's state container.
+A simple Twitter-like fullstack app built on the MERN (MondoDB, ExpressJS, ReactJS, NodeJs) stack, as well as Redux on the frontend as the app's state container.
 
 JWT (JSON Web tokens) is used to handle user authentication.
 
