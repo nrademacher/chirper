@@ -52,4 +52,22 @@ router.post(
   }
 );
 
+router.delete(
+  '/:userId/:tweetId',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    Tweet.deleteOne({ _id: req.params.tweetId, user: req.params.userId })
+      .then((tweet) =>
+        tweet.deletedCount
+          ? res.json({ success: true, deleted: tweet.deletedCount })
+          : res.json({ success: false, error: 'no such tweet' })
+      )
+      .catch((err) =>
+        res
+          .status(404)
+          .json({ notweetfound: 'No tweet found from that user with that ID' })
+      );
+  }
+);
+
 module.exports = router;
