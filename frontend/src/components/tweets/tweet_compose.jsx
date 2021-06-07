@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import TweetBox from "./tweet_box";
-import { composeTweet } from "../../actions/tweet_actions";
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import TweetBox from './tweet_box';
+import { composeTweet } from '../../actions/tweet_actions';
 
 const TweetCompose = (props) => {
   const dispatch = useDispatch();
-  const [text, setText] = useState("");
+  const [text, setText] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -14,7 +14,7 @@ const TweetCompose = (props) => {
     };
 
     dispatch(composeTweet(tweet));
-    setText("");
+    setText('');
   };
 
   const update = (e) => {
@@ -22,19 +22,23 @@ const TweetCompose = (props) => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <div>
+    <div className="mx-auto max-w-[95vw] mt-[5vh] md:max-w-prose">
+      <form className="w-full" onSubmit={handleSubmit}>
+        <div className="flex justify-around w-full">
           <input
             type="textarea"
             value={text}
             onChange={update}
+            className="w-2/3 textarea textarea-bordered textarea-primary"
             placeholder="Write your tweet..."
           />
-          <input type="submit" value="Submit" />
+          <input
+            type="submit"
+            value="Submit"
+            className="w-1/4 btn btn-primary"
+          />
         </div>
       </form>
-      <br />
       <TweetBox text={text} />
     </div>
   );
