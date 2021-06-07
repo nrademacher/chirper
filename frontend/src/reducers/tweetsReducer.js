@@ -14,7 +14,9 @@ import { RECEIVE_TWEETS, RECEIVE_USER_TWEETS, RECEIVE_NEW_TWEET, RECEIVE_DELETE_
         newState.new = action.tweet.data
         return newState;
       case RECEIVE_DELETE_TWEET:
-        newState.user = newState.user.filter(tweet => tweet._id !== action.payload.config.url.split("/")[6])
+        let urlArr = action.payload.config.url.split("/")
+        let idFromUrl = urlArr[urlArr.length - 1]
+        newState.user = newState.user.filter(tweet => tweet._id !== idFromUrl)
         return newState;
       default:
         return state;
