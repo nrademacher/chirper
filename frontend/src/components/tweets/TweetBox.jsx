@@ -2,9 +2,12 @@ import React from 'react';
 
 const TweetBox = ({ text, deleteTweet }) => (
   <article className="p-8 my-8 shadow-md card">
-    <h3>{text}</h3>
+    <h3 className="text-lg">{text}</h3>
     {deleteTweet && (
-      <button className="text-warning" onClick={deleteTweet}>
+      <button
+        className="mx-auto mt-8 w-1/4 btn btn-secondary"
+        onClick={deleteTweet}
+      >
         Delete
       </button>
     )}
