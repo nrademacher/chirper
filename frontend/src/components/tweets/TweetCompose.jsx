@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import TweetBox from './TweetBox';
-import { composeTweet } from '../../actions/tweetActions.js';
+import { composeTweet } from '../../actions/tweetActions';
 
 const TweetCompose = (props) => {
   const dispatch = useDispatch();

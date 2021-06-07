@@ -1,13 +1,14 @@
 import React from 'react';
 
-class TweetBox extends React.Component {
-  render() {
-    return (
-        <article className="card shadow-md my-8 p-8">
-            <h3>{this.props.text}</h3>
-        </article>
-    );
-  }
-}
+const TweetBox = ({ text, deleteTweet }) => (
+  <article className="p-8 my-8 shadow-md card">
+    <h3>{text}</h3>
+    {deleteTweet && (
+      <button className="text-warning" onClick={deleteTweet}>
+        Delete
+      </button>
+    )}
+  </article>
+);
 
 export default TweetBox;

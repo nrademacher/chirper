@@ -1,4 +1,4 @@
-import { RECEIVE_TWEETS, RECEIVE_USER_TWEETS, RECEIVE_NEW_TWEET } from '../actions/tweetActions';
+import { RECEIVE_TWEETS, RECEIVE_USER_TWEETS, RECEIVE_NEW_TWEET, RECEIVE_DELETE_TWEET } from '../actions/tweetActions';
   
   const TweetsReducer = (state = { all: {}, user: {}, new: undefined }, action) => {
     Object.freeze(state);
@@ -12,6 +12,10 @@ import { RECEIVE_TWEETS, RECEIVE_USER_TWEETS, RECEIVE_NEW_TWEET } from '../actio
         return newState;
       case RECEIVE_NEW_TWEET:
         newState.new = action.tweet.data
+        return newState;
+      case RECEIVE_DELETE_TWEET:
+        console.log("delete", newState.user)
+        newState.user = newState.user.filter(tweet => tweet._id !== action.payload.config.url.split("/")[6])
         return newState;
       default:
         return state;

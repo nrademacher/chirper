@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchUserTweets } from '../../actions/tweetActions';
+import { fetchUserTweets, removeTweet } from '../../actions/tweetActions';
 import Profile from './Profile';
 
 const mapStateToProps = (state) => {
@@ -11,7 +11,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchUserTweets: id => dispatch(fetchUserTweets(id))
+    fetchUserTweets: id => dispatch(fetchUserTweets(id)),
+    removeTweet: (userId, tweetId) => dispatch(removeTweet(userId, tweetId))
   };
 };
 

@@ -68,7 +68,7 @@ const NavBar = () => {
     }
   };
 
-  return <nav classNameName="mx-auto w-full text-center">{getLinks()}</nav>;
+  return <nav className="mx-auto w-full text-center">{getLinks()}</nav>;
 };
 
 export default NavBar;
