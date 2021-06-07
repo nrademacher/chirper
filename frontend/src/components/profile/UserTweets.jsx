@@ -3,7 +3,7 @@ import TweetBox from '../tweets/TweetBox';
 import { fetchUserTweets, removeTweet } from '../../actions/tweetActions';
 import { useDispatch, useSelector } from 'react-redux';
 
-const Profile = () => {
+const UserTweets = () => {
   const tweets = useSelector((state) => Object.values(state.tweets.user));
   const currentUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
@@ -34,4 +34,4 @@ const Profile = () => {
   }
 };
 
-export default Profile;
+export default UserTweets;

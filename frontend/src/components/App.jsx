@@ -2,11 +2,11 @@ import React from 'react';
 import { AuthRoute, ProtectedRoute } from '../util/routeUtil';
 import { Switch } from 'react-router-dom';
 import NavBar from './NavBar';
-import Tweets from './tweets/Tweets';
+import AllTweets from './tweets/AllTweets';
 import MainPage from './main/MainPage';
 import LoginForm from './session/LoginForm';
 import SignupForm from './session/SignupForm';
-import Profile from './profile/Profile';
+import UserTweets from './profile/UserTweets';
 import TweetCompose from './tweets/TweetCompose';
 
 const App = () => (
@@ -17,8 +17,8 @@ const App = () => (
       <AuthRoute exact path="/login" component={LoginForm} />
       <AuthRoute exact path="/signup" component={SignupForm} />
 
-      <ProtectedRoute exact path="/tweets" component={Tweets} />
-      <ProtectedRoute exact path="/profile" component={Profile} />
+      <ProtectedRoute exact path="/tweets" component={AllTweets} />
+      <ProtectedRoute exact path="/profile" component={UserTweets} />
       <ProtectedRoute exact path="/new_tweet" component={TweetCompose} />
     </Switch>
   </div>

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchUserTweets, removeTweet } from '../../actions/tweetActions';
-import Profile from './Profile';
+import UserTweets from './UserTweets';
 
 const mapStateToProps = (state) => {
   return {
@@ -16,4 +16,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Profile);
+export default connect(mapStateToProps, mapDispatchToProps)(UserTweets);

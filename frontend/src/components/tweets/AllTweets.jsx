@@ -4,7 +4,7 @@ import TweetBox from "./TweetBox";
 import { fetchTweets } from "../../actions/tweetActions";
 import { useDispatch, useSelector } from "react-redux";
 
-const Tweets = () => {
+const AllTweets = () => {
   const tweets = useSelector((state) => Object.values(state.tweets.all));
   const dispatch = useDispatch();
 
@@ -26,4 +26,4 @@ const Tweets = () => {
   }
 };
 
-export default withRouter(Tweets);
+export default withRouter(AllTweets);
