@@ -1,4 +1,4 @@
-import { getTweets, getUserTweets, writeTweet } from '../util/tweet_api_util';
+import { getTweets, getUserTweets, writeTweet } from '../util/tweetApiUtil';
 
 export const RECEIVE_TWEETS = "RECEIVE_TWEETS";
 export const RECEIVE_USER_TWEETS = "RECEIVE_USER_TWEETS";

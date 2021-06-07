@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { withRouter } from "react-router-dom";
-import TweetBox from "./tweet_box";
-import { fetchTweets } from "../../actions/tweet_actions";
+import TweetBox from "./TweetBox";
+import { fetchTweets } from "../../actions/tweetActions";
 import { useDispatch, useSelector } from "react-redux";
 
 const Tweets = () => {

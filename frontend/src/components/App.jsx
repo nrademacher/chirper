@@ -1,13 +1,13 @@
 import React from 'react';
-import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import { AuthRoute, ProtectedRoute } from '../util/routeUtil';
 import { Switch } from 'react-router-dom';
-import NavBar from './nav/navbar';
-import Tweets from './tweets/tweets';
-import MainPage from './main/main_page';
-import LoginForm from './session/login_form';
-import SignupForm from './session/signup_form';
-import Profile from './profile/profile';
-import TweetCompose from './tweets/tweet_compose';
+import NavBar from './nav/NavBar';
+import Tweets from './tweets/Tweets';
+import MainPage from './main/MainPage';
+import LoginForm from './session/LoginForm';
+import SignupForm from './session/SignupForm';
+import Profile from './profile/Profile';
+import TweetCompose from './tweets/TweetCompose';
 
 const App = () => (
   <div className="min-h-screen bg-base-100 text-primary-content subpixel-antialiased">

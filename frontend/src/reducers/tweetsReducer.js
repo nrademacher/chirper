@@ -1,4 +1,4 @@
-import { RECEIVE_TWEETS, RECEIVE_USER_TWEETS, RECEIVE_NEW_TWEET } from '../actions/tweet_actions';
+import { RECEIVE_TWEETS, RECEIVE_USER_TWEETS, RECEIVE_NEW_TWEET } from '../actions/tweetActions';
   
   const TweetsReducer = (state = { all: {}, user: {}, new: undefined }, action) => {
     Object.freeze(state);

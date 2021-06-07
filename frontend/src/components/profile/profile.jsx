@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import TweetBox from "../tweets/tweet_box";
-import { fetchUserTweets } from "../../actions/tweet_actions";
+import TweetBox from "../tweets/TweetBox";
+import { fetchUserTweets } from "../../actions/tweetActions";
 import { useDispatch, useSelector } from "react-redux";
 
 const Profile = () => {

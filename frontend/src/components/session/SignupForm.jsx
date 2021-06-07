@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { withRouter } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { signUp } from "../../actions/session_actions";
+import { signUp } from "../../actions/sessionActions";
 
 const SignupForm = (props) => {
   const signedIn = useSelector((state) => state.session.isSignedIn);
