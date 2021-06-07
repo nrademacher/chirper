@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { logout } from '../../actions/sessionActions';
+import { logout } from '../actions/sessionActions';
 
 const NavBar = () => {
   const navTab = useRef(null);
