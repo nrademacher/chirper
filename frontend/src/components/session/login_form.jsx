@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { withRouter } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { login } from "../../actions/session_actions";
+import React, { useState } from 'react';
+import { withRouter } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { login } from '../../actions/session_actions';
 
 const LoginForm = (props) => {
-  const [form, setForm] = useState({ email: "", password: "" });
+  const [form, setForm] = useState({ email: '', password: '' });
   const errors = useSelector((state) => state.errors.session);
   const dispatch = useDispatch();
 
@@ -29,7 +29,7 @@ const LoginForm = (props) => {
 
   const renderErrors = () => {
     return (
-      <ul>
+      <ul className="mt-2 text-error">
         {Object.keys(errors).map((error, i) => (
           <li key={`error-${i}`}>{errors[error]}</li>
         ))}
@@ -38,29 +38,39 @@ const LoginForm = (props) => {
   };
 
   return (
-    <div>
+    <section className="place-items-center mt-[10vh]">
       <form onSubmit={handleSubmit}>
-        <div>
-          <br />
-          <input
-            type="text"
-            value={form.email}
-            onChange={updateField("email")}
-            placeholder="Email"
-          />
-          <br />
-          <input
-            type="password"
-            value={form.password}
-            onChange={updateField("password")}
-            placeholder="Password"
-          />
-          <br />
-          <input type="submit" value="Submit" />
+    <div className="w-[95vw] md:w-[30vw] mx-auto">
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Email</span>
+            </label>
+            <input
+              type="email"
+              value={form.email}
+              onChange={updateField('email')}
+              placeholder="Email"
+              className="input input-bordered"
+            />
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Password</span>
+            </label>
+            <input
+              type="password"
+              value={form.email}
+              onChange={updateField('password')}
+              placeholder="Password"
+              className="input input-bordered"
+            />
+          </div>
+
+          <input type="submit" value="Submit" className="mt-4 btn btn-primary" />
           {renderErrors()}
         </div>
       </form>
-    </div>
+    </section>
   );
 };
 

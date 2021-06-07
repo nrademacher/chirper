@@ -11,4 +11,9 @@ module.exports = {
     extend: {},
   },
   plugins: [daisyui],
+  daisyui: {
+    themes: [
+      'pastel', // first one will be the default theme
+    ],
+  },
 };

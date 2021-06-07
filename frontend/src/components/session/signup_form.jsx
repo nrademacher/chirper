@@ -43,7 +43,7 @@ const SignupForm = (props) => {
 
   const renderErrors = () => {
     return (
-      <ul>
+      <ul className="mt-2 text-error">
         {Object.keys(errors).map((error, i) => (
           <li key={`error-${i}`}>{errors[error]}</li>
         ))}
@@ -52,43 +52,62 @@ const SignupForm = (props) => {
   };
 
   return (
-    <div className="login-form-container">
+    <section className="place-items-center mt-[10vh]">
       <form onSubmit={handleSubmit}>
-        <div className="login-form">
-          <br />
-          <input
-            type="text"
-            value={form.email}
-            onChange={update("email")}
-            placeholder="Email"
-          />
-          <br />
-          <input
-            type="text"
-            value={form.handle}
-            onChange={update("handle")}
-            placeholder="Handle"
-          />
-          <br />
-          <input
-            type="password"
-            value={form.password}
-            onChange={update("password")}
-            placeholder="Password"
-          />
-          <br />
-          <input
-            type="password"
-            value={form.password2}
-            onChange={update("password2")}
-            placeholder="Confirm Password"
-          />
-          <br />
-          <input type="submit" value="Submit" />
+    <div className="w-[95vw] md:w-[30vw] mx-auto">
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Email</span>
+            </label>
+            <input
+              type="email"
+              value={form.email}
+              onChange={update('email')}
+              placeholder="Email"
+              className="input input-bordered"
+            />
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Handle</span>
+            </label>
+            <input
+              type="text"
+              value={form.handle}
+              onChange={update('handle')}
+              placeholder="Handle"
+              className="input input-bordered"
+            />
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Password</span>
+            </label>
+            <input
+              type="password"
+              value={form.password}
+              onChange={update('password')}
+              placeholder="Password"
+              className="input input-bordered"
+            />
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Password</span>
+            </label>
+            <input
+              type="password"
+              value={form.password2}
+              onChange={update('password2')}
+              placeholder="Confirm Password"
+              className="input input-bordered"
+            />
+          </div>
+          <input type="submit" value="Submit" className="mt-4 btn btn-primary" />
           {renderErrors()}
         </div>
       </form>
-    </div>
+    </section>
   );
 };
 
