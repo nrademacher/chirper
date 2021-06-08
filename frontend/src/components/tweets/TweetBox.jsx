@@ -15,7 +15,7 @@ const TweetBox = ({ text, user, id, deleteTweet, editTweet }) => {
       {!editMode ? (
         <h3 className="text-lg">{text}</h3>
       ) : (
-        <input type="textarea" value={edit} onChange={(e) => setEdit(e.target.value)} />
+        <input className="p-4 bg-primary bg-opacity-25 rounded-md" type="textarea" value={edit} onChange={(e) => setEdit(e.target.value)} />
       )}
       <div className="flex">
         {editTweet && !editMode && (
