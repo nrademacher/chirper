@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
-const Schema = mongoose.Schema
 
+const Schema = mongoose.Schema
 const TweetSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
