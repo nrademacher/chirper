@@ -40,7 +40,7 @@ router.post(
     const { errors, isValid } = validateTweetInput(req.body);
 
     if (!isValid) {
-      return res.status(400).json(erros);
+      return res.status(400).json(errors);
     }
 
     const newTweet = new Tweet({
@@ -49,6 +49,33 @@ router.post(
     });
 
     newTweet.save().then((tweet) => res.json(tweet));
+  }
+);
+
+router.patch(
+  '/:userId/:tweetId',
+  passport.authenticate('jwt', { session: false }),
+  async (req, res) => {
+    const { errors, isValid } = validateTweetInput(req.body);
+
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
+
+
+    try {
+      const tweet = await Tweet.updateOne(
+        { _id: req.params.tweetId, user: req.params.userId },
+        { text: req.body.text }
+      );
+      tweet.n
+        ? res.json({ success: true, modified: tweet.nModified })
+        : res.json({ sucess: false, error: 'no such tweet' });
+    } catch {
+      res
+        .status(404)
+        .json({ notweetfound: 'No tweet found from that user with that ID' });
+    }
   }
 );
 

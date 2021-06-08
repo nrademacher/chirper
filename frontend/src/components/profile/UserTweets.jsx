@@ -1,6 +1,10 @@
 import React, { useEffect } from 'react';
 import TweetBox from '../tweets/TweetBox';
-import { fetchUserTweets, removeTweet } from '../../actions/tweetActions';
+import {
+  fetchUserTweets,
+  removeTweet,
+  editTweet,
+} from '../../actions/tweetActions';
 import { useDispatch, useSelector } from 'react-redux';
 
 const UserTweets = () => {
@@ -11,6 +15,10 @@ const UserTweets = () => {
   useEffect(() => {
     dispatch(fetchUserTweets(currentUser.id));
   }, [currentUser, dispatch]);
+
+  const updateTweet = (user, id, edit) => {
+    dispatch(editTweet(user, id, edit));
+  };
 
   if (tweets.length === 0) {
     return (
@@ -25,8 +33,11 @@ const UserTweets = () => {
         {tweets.map((tweet) => (
           <TweetBox
             key={tweet._id}
+            id={tweet._id}
+            user={currentUser.id}
             text={tweet.text}
             deleteTweet={() => dispatch(removeTweet(currentUser.id, tweet._id))}
+            editTweet={updateTweet}
           />
         ))}
       </div>
